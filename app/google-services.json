@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "588956676428",
+    "project_id": "project-peach-da1c1",
+    "storage_bucket": "project-peach-da1c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588956676428:android:aa988949ff3d9d3d0d9fe9",
+        "android_client_info": {
+          "package_name": "com.adrenaline.peach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588956676428-elg098nu9r4jprij1u1gu86te1p2rok0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCls8MILKRy8e7N7-xouc4qtVRMlJPBrMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588956676428-elg098nu9r4jprij1u1gu86te1p2rok0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

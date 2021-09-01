@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Peach</string>
+    <string name="welcome_note">Welcome !</string>
+    <string name="creator_signup_head">Create Account as a creator</string>
+    <string name="create_account_as_a_content_creator">create account as a content creator</string>
+    <string name="txt_login">Sign in</string>
+    <string name="btn_signin" />
+    <string name="btn_sign_in">Sign in</string>
+    <string name="txt_havntacc">Havn\'t account</string>
+    <string name="link_sign_up">Sign up</string>
+</resources>
