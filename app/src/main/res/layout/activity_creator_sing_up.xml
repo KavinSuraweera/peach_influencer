@@ -22,7 +22,7 @@
         android:id="@+id/creatorsignUpHead"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="24dp"
         android:text="@string/create_account_as_a_content_creator"
         android:textAllCaps="true"
