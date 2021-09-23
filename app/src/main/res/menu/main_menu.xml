@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home " />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/bell_icon"
+            android:title="Notification " />
+
+        <item
+            android:id="@+id/nav_"
+            android:icon="@drawable/ic_baseline_checkroom_24"
+            android:title="Brand" />
+        <item
+            android:id="@+id/nav_req"
+            android:icon="@drawable/pencil_icon"
+            android:title="My Requests" />
+        <item
+            android:id="@+id/nav_event"
+            android:icon="@drawable/ic_baseline_event_24"
+            android:title="Events" />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Profire">
+
+
+            <menu>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_baseline_exit_to_app_24"
+                    android:title="Logout" />
+                <item
+                    android:id="@+id/nav_edit_prof"
+                    android:icon="@drawable/ic_baseline_edit_24"
+                    android:title="Edit" />
+
+            </menu>
+        </item>
+    </group>
+
+
+</menu>
