@@ -35,7 +35,7 @@
             android:layout_marginTop="8dp"
             android:text="Fname"
             android:textColor="@color/white"
-            android:textSize="35dp"
+            android:textSize="25dp"
             app:layout_constraintStart_toEndOf="@+id/usr_img"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"
             android:text="Lname"
             android:textColor="@color/white"
-            android:textSize="35dp"
+            android:textSize="25dp"
             app:layout_constraintStart_toEndOf="@+id/view_fname"
             app:layout_constraintTop_toTopOf="parent" />
 

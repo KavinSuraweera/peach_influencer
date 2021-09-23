@@ -66,6 +66,8 @@ public class creatorLogin extends AppCompatActivity {
                  //authenticate the user
 
                 fAuth.signInWithEmailAndPassword(eMail,Password).addOnCompleteListener(creatorLogin.this,new OnCompleteListener<AuthResult>() {
+
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
