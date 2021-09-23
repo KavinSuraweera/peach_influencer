@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:orientation="vertical"
-    android:background="">
+    android:orientation="vertical">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

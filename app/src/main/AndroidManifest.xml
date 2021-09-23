@@ -15,11 +15,7 @@
         <activity
             android:name=".ui.header"
             android:exported="true" />
-        <activity
-            android:name=".SideBar"
-            android:exported="true"
-            android:label="@string/title_activity_side_bar"
-            android:theme="@style/Theme.Peach.NoActionBar" />
+
         <activity
             android:name=".creator_dashboard"
             android:exported="true" />
