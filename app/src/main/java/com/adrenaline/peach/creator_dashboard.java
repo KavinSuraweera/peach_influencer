@@ -145,7 +145,17 @@ public class creator_dashboard extends AppCompatActivity implements NavigationVi
     };
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()){
+            case R.id.nav_home:
+                break;
+            case R.id.nav_profile:
+                Intent intent = new Intent(creator_dashboard.this,creatorProfile.class);
+                startActivity(intent);
+                break; 
+        }
+
         return false;
     }
 }

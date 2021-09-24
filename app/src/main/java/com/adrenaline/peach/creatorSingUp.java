@@ -112,6 +112,7 @@ public class creatorSingUp extends AppCompatActivity {
                             user.put("contactNo",contact);
                             user.put("userName", usrName);
                             user.put("email", email);
+                            user.put("proPic","home_icon.png");
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
