@@ -35,7 +35,7 @@
 
         <include
             layout="@layout/toolbar"
-            android:id="@id/toolbar"></include>
+            android:id="@id/toolbar"/>
 
         <TextView
             android:id="@+id/textView2"
