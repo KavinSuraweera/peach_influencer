@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btn_brand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openBrandSignUp();
+                openBrandLogin();
             }
         });
 
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void openBrandSignUp(){
-        Intent intent = new Intent(this,BrandSignUp.class);
+    public void openBrandLogin(){
+        Intent intent = new Intent(this,brand_login.class);
         startActivity(intent);
     }
 

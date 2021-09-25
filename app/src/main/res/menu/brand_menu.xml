@@ -12,17 +12,17 @@
             android:title="Notification " />
 
         <item
-            android:id="@+id/nav_brand"
-            android:icon="@drawable/brand_blue"
-            android:title="Brands" />
+            android:id="@+id/nav_products"
+            android:icon="@drawable/brands_icon"
+            android:title="My Products" />
         <item
             android:id="@+id/nav_req"
-            android:icon="@drawable/req_blue"
-            android:title="My Requests" />
+            android:icon="@drawable/pencil_icon"
+            android:title="Content Creators" />
         <item
             android:id="@+id/nav_event"
             android:icon="@drawable/ic_baseline_event_24"
-            android:title="Events" />
+            android:title="Manage Events" />
 
     </group>
 

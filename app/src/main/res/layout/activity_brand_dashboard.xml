@@ -17,7 +17,7 @@
         android:layout_gravity="start"
         android:visibility="visible"
         app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu">
+        app:menu="@menu/brand_menu">
 
         <ScrollView
             android:layout_width="match_parent"
