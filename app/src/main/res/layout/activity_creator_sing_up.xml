@@ -49,43 +49,42 @@
         android:contentDescription="back_arrow" />
 
 
+        <EditText
+            android:id="@+id/txt_fname"
+            android:layout_width="155dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/textbox_back"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.176"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-            <EditText
-                android:id="@+id/txt_fname"
-                android:layout_width="320dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/textbox_back"
-                android:ems="10"
-                android:hint="First Name"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hint_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+    <EditText
+        android:id="@+id/txt_lname"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textbox_back"
+        android:ems="10"
+        android:hint="Last name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColorHint="@color/hint_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toEndOf="@+id/txt_fname"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-            <EditText
-                android:id="@+id/txt_lname"
-                android:layout_width="320dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/textbox_back"
-                android:ems="10"
-                android:hint="Last name"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:padding="10dp"
-                android:textColorHint="@color/hint_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fname" />
-
-            <EditText
+    <EditText
                 android:id="@+id/txt_contact"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
@@ -173,6 +172,27 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
+
+    <ImageButton
+        android:id="@+id/upload_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textbox_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rpass"
+        app:srcCompat="@drawable/upload_icon" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Upload a profile picture "
+        app:layout_constraintStart_toEndOf="@+id/upload_pic"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rpass" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

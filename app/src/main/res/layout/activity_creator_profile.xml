@@ -39,6 +39,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="40dp"
+        android:src="@drawable/ig_annvmariv_1024x1016"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,26 +117,28 @@
         android:layout_width="80dp"
         android:layout_height="24dp"
 
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/border_buttons"
         android:text="edit profile"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.311"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ucontact" />
 
     <Button
-        android:id="@+id/btn_home"
+        android:id="@+id/btn_logout"
         android:layout_width="80dp"
         android:layout_height="24dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="52dp"
-        android:background="@drawable/border_buttons"
-        android:text="home"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/red_btn"
+        android:text="Logout"
+        android:textColor="@color/white"
         android:textSize="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView16"
-        app:layout_constraintStart_toEndOf="@+id/btn_edit" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ucontact" />
 
     <Button
         android:id="@+id/btn_delete"

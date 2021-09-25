@@ -1,10 +1,14 @@
 package com.adrenaline.peach;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -35,7 +39,7 @@ public class creatorSingUp extends AppCompatActivity {
     private View decorView;
     private ImageButton back_btn;
     EditText fName,lName,contactNo,userName,eMail,password,rPassword;
-    ImageButton mRegisterbtn;
+    ImageButton mRegisterbtn,changeProfileImage;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
@@ -55,6 +59,17 @@ public class creatorSingUp extends AppCompatActivity {
          password =findViewById(R.id.txt_pass);
          rPassword =findViewById(R.id.txt_rpass);
          mRegisterbtn = findViewById(R.id.btn_reg);
+
+         changeProfileImage = findViewById(R.id.upload_pic);
+
+         changeProfileImage.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 ////open gallery
+                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                 startActivityForResult(openGalleryIntent,1000);
+             }
+         });
 
 
         fAuth =  FirebaseAuth.getInstance();
@@ -112,7 +127,6 @@ public class creatorSingUp extends AppCompatActivity {
                             user.put("contactNo",contact);
                             user.put("userName", usrName);
                             user.put("email", email);
-                            user.put("proPic","home_icon.png");
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -150,6 +164,16 @@ public class creatorSingUp extends AppCompatActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000){
+            if(requestCode == Activity.RESULT_OK){
+                Uri imageUri = data.getData();
+                //changeProfileImage.setImageUri(imageUri)
+            }
+        }
+    }
+    @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if(hasFocus){
@@ -174,4 +198,6 @@ public class creatorSingUp extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
 }

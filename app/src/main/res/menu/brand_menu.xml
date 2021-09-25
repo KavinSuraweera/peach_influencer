@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/notifications_blue"
+            android:title="Home " />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/home_blue"
+            android:title="Notification " />
+
+        <item
+            android:id="@+id/nav_brand"
+            android:icon="@drawable/brand_blue"
+            android:title="Brands" />
+        <item
+            android:id="@+id/nav_req"
+            android:icon="@drawable/req_blue"
+            android:title="My Requests" />
+        <item
+            android:id="@+id/nav_event"
+            android:icon="@drawable/ic_baseline_event_24"
+            android:title="Events" />
+
+    </group>
+
+
+    <item
+        android:title="Profire">
+
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/account_blue"
+                    android:title="Profile" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_baseline_exit_to_app_24"
+                    android:title="Logout" />
+
+            </group>
+        </menu>
+    </item>
+
+
+
+</menu>

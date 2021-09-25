@@ -60,7 +60,6 @@ public class creator_dashboard extends AppCompatActivity implements NavigationVi
         decorView = getWindow().getDecorView();
 
         setContentView(R.layout.activity_creator_dashboard);
-        fName = findViewById(R.id.textView2);
        // lName = findViewById(R.id.view_lname);
 
         fAuth = FirebaseAuth.getInstance();

@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.style.IconMarginSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,19 +33,25 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class creatorProfile extends AppCompatActivity {
 
+    public static final String TAG = "TAG";
     private CircleImageView creatorPic;
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    private Button btn_logout;
+    
 
 
     private View decorView;
@@ -49,7 +59,8 @@ public class creatorProfile extends AppCompatActivity {
     FirebaseFirestore fStore;
 
     TextView fName,lName,contactNo,userName,eMail,fname,lname,uname;
-    CircleImageView propic;
+    Button edit;
+    ImageView changeProfileImage;
 
     private String creatorId;
     private FirebaseUser user;
@@ -70,15 +81,44 @@ public class creatorProfile extends AppCompatActivity {
         userName = findViewById(R.id.uname);
         eMail = findViewById(R.id.uemail);
         contactNo = findViewById(R.id.ucontact);
+        edit = findViewById(R.id.btn_edit);
+        changeProfileImage = findViewById(R.id.btn_add_pic);
+        creatorPic = findViewById(R.id.c_profile_pic);
+        btn_logout = findViewById(R.id.btn_logout);
 
-        ImageView pickbutton = findViewById(R.id.btn_add_pic);
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
+        user = fAuth.getCurrentUser();
+        creatorId = fAuth.getCurrentUser().getUid();
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();//logout
+                Intent intent = new Intent(creatorProfile.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        pickbutton.setOnClickListener(new View.OnClickListener() {
+        StorageReference profileRef = storageReference.child("creatorpics/"+creatorId+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(creatorPic);
+            }
+        });
+
+
+
+
+
+
+        changeProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //startCropActivity();
@@ -89,11 +129,15 @@ public class creatorProfile extends AppCompatActivity {
 
         });
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(creatorProfile.this,editCreator.class);
+                startActivity(intent);
+            }
+        });
 
-        user = fAuth.getCurrentUser();
-        creatorId = fAuth.getCurrentUser().getUid();
+
 
 
 
@@ -129,27 +173,8 @@ public class creatorProfile extends AppCompatActivity {
         });
     }
 
-    private  void startCropActivity()
-    {
-        CropImage.activity()
-                .setGuidelines(CropImageView.Guidelines.ON)
-                .start(this);
-    }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-//            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-//            if (resultCode == RESULT_OK) {
-//                Uri resultUri = result.getUri();
-//                ImageView creatorImageView = findViewById(R.id.c_profile_pic);
-//                creatorImageView.setImageURI(resultUri);
-//            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-//                Exception error = result.getError();
-//            }
-//        }
-//    }
+
 
     private void choosePicture() {
         Intent intent = new Intent();
@@ -167,6 +192,9 @@ public class creatorProfile extends AppCompatActivity {
             imageUri = data.getData();
             //creatorPic.setImageURI(imageUri);
             uploadPicture();
+
+
+
         }
     }
 
@@ -178,7 +206,7 @@ public class creatorProfile extends AppCompatActivity {
         pd.show();
 
         final String randomKey = UUID.randomUUID().toString();
-        StorageReference creatorpropicRef = storageReference.child("images/"+randomKey);
+        StorageReference creatorpropicRef = storageReference.child("creatorpics/"+creatorId+"/profile.jpg");
 
         creatorpropicRef.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -186,6 +214,12 @@ public class creatorProfile extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         pd.dismiss();
                         Snackbar.make(findViewById(android.R.id.content), "Image Uploaded. ", Snackbar.LENGTH_LONG).show();
+                        creatorpropicRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Picasso.get().load(uri).into(creatorPic);
+                            }
+                        });
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -222,5 +256,6 @@ public class creatorProfile extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     };
+
 
 }
