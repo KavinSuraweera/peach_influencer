@@ -40,6 +40,11 @@ public class creatorLogin extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         fAuth = FirebaseAuth.getInstance();
 
+        if(fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(),creator_dashboard.class));
+            finish();
+        }
+
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

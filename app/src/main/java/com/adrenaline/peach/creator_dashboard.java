@@ -69,14 +69,6 @@ public class creator_dashboard extends AppCompatActivity implements NavigationVi
         creatorId = fAuth.getCurrentUser().getUid();
 
 
-        DocumentReference documentReference = fStore.collection("creators").document(creatorId);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                fName.setText(documentSnapshot.getString("fName"));
-//                lName.setText(documentSnapshot.getString("lName"));
-            }
-        });
 
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
 

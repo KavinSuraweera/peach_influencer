@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/account_blue.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/blue_button.xml" value="0.1730263157894737" />
         <entry key="app/src/main/res/drawable/body_background.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/drawable/border_buttons.xml" value="0.1730263157894737" />
         <entry key="app/src/main/res/drawable/brand_blue.xml" value="0.1" />
@@ -23,11 +24,13 @@
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.1736842105263158" />
         <entry key="app/src/main/res/drawable/signin_button.xml" value="0.16578947368421051" />
         <entry key="app/src/main/res/drawable/textbox_back.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/drawable/upload_icon.xml" value="0.11315789473684211" />
+        <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.21584026877575588" />
         <entry key="app/src/main/res/layout/activity_brand_dashboard.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_brand_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_brand_login.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_brand_lohin.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_brand_sign_up.xml" value="0.246875" />
-        <entry key="app/src/main/res/layout/activity_creator_dashboard.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_brand_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_creator_dashboard.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_creator_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_creator_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_creator_sing_up.xml" value="0.25" />
@@ -47,7 +50,7 @@
         <entry key="app/src/main/res/layout/toolbar_white.xml" value="0.13729508196721313" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.16282894736842105" />
         <entry key="app/src/main/res/menu/brand_menu.xml" value="0.16282894736842105" />
-        <entry key="app/src/main/res/menu/main_menu.xml" value="0.165" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/side_bar.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
