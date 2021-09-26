@@ -38,7 +38,6 @@ public class eAdapter extends FirebaseRecyclerAdapter<Evendata,eAdapter.eViewHol
                 builder.setTitle("Are you Sure ?");
                 builder.setMessage("Deleted data can't be Undo.");
 
-                builder.setMessage("")
             }
         });
 
