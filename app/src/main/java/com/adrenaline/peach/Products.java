@@ -2,18 +2,20 @@ package com.adrenaline.peach;
 
 public class Products {
 
-    String name,des,pfp,pip,pis,ptv,type,img;
+    String name,des,pfp,pip,pis,ptv,pyv,type,img;
+
 
     Products(){
 
     }
 
-    public Products(String name, String des, String pfp, String pip, String pis, String ptv, String type, String img) {
+    public Products(String type, String name, String pip, String pis, String pfp,String pyv, String ptv, String des, String img) {
         this.name = name;
         this.des = des;
         this.pfp = pfp;
         this.pip = pip;
         this.pis = pis;
+        this.pyv = pyv;
         this.ptv = ptv;
         this.type = type;
         this.img = img;
@@ -81,5 +83,13 @@ public class Products {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getPyv() {
+        return pyv;
+    }
+
+    public void setPyv(String pyv) {
+        this.pyv = pyv;
     }
 }

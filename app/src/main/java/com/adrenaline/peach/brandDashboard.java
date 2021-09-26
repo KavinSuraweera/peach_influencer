@@ -146,6 +146,22 @@ public class brandDashboard extends AppCompatActivity implements NavigationView.
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                break;
+            case R.id.nav_profile:
+                Intent intent = new Intent(brandDashboard.this,BrandProfile.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_event:
+                Intent intent2 = new Intent(brandDashboard.this,Events.class);
+                startActivity(intent2);
+                break;
+
+        }
+
+
         return false;
     }
 
@@ -166,6 +182,8 @@ public class brandDashboard extends AppCompatActivity implements NavigationView.
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     };
+
+
 
 
 

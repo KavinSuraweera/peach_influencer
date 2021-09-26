@@ -62,14 +62,6 @@ public class creatorSingUp extends AppCompatActivity {
 
          changeProfileImage = findViewById(R.id.upload_pic);
 
-         changeProfileImage.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 ////open gallery
-                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                 startActivityForResult(openGalleryIntent,1000);
-             }
-         });
 
 
         fAuth =  FirebaseAuth.getInstance();

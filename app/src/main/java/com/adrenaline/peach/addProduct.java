@@ -249,10 +249,11 @@ public class addProduct extends AppCompatActivity {
         String Pis = pis.getText().toString();
         String Pfp = pfp.getText().toString();
         String PTv = ptv.getText().toString();
+        String Pyv = pyv.getText().toString();
         String Des = description.getText().toString();
-        String key = imgUri;
+        String key = brandId;
 
-        Products product = new Products(Type,Name,Pip,Pis,Pfp,PTv,Des,key);
+        Products product = new Products(Type,Name,Pip,Pis,Pfp,Pyv,PTv,Des,key);
 
         productDbref.push().setValue(product);
         Toast.makeText(addProduct.this, "Data inserted", Toast.LENGTH_SHORT).show();
