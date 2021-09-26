@@ -24,7 +24,7 @@
         android:background="@drawable/textbox_back"
         android:ems="10"
         android:hint="Product Name"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="10dp"
         android:textColor="@color/textbox_gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:background="@drawable/textbox_back"
         android:ems="10"
         android:hint="Product Type"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="10dp"
         android:textColor="@color/textbox_gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="IG Post" />
 
             <EditText
                 android:id="@+id/price_ip"
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="IG Story" />
 
             <EditText
                 android:id="@+id/price_is"
@@ -199,8 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-                android:text="TextView" />
+                android:text="FB Post" />
 
             <EditText
                 android:id="@+id/price_fp"
@@ -236,7 +235,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TT Video" />
 
             <EditText
                 android:id="@+id/price_tv"
@@ -271,7 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="YT Video" />
 
             <EditText
                 android:id="@+id/price_yv"

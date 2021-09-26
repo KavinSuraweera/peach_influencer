@@ -6,22 +6,52 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class brandDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static final String TAG = "TAG";
+    private String brandId;
+    private FirebaseUser user;
     private View decorView;
+
+    private ArrayList<Products> mProducts = new ArrayList<>();
+    private pAdapter mpAdapter;
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     ImageView addBrand;
+    RecyclerView recyclerView;
+
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    DatabaseReference dbRef;
+    pAdapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +60,21 @@ public class brandDashboard extends AppCompatActivity implements NavigationView.
 
         decorView = getWindow().getDecorView();
         addBrand = findViewById(R.id.btn_add_product);
+        recyclerView =(RecyclerView)findViewById(R.id.rv);
 
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
+        brandId = fAuth.getCurrentUser().getUid();
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        FirebaseRecyclerOptions<Products> options =
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products/"+brandId), Products.class)
+                        .build();
+        adapter = new pAdapter(options);
+        recyclerView.setAdapter(adapter);
 
 
 
@@ -77,6 +121,19 @@ public class brandDashboard extends AppCompatActivity implements NavigationView.
             }
         });
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+
 
     @Override
     public void onBackPressed() {
@@ -109,5 +166,7 @@ public class brandDashboard extends AppCompatActivity implements NavigationView.
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     };
+
+
 
 }
