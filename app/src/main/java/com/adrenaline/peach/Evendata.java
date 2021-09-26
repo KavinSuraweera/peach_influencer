@@ -3,6 +3,10 @@ package com.adrenaline.peach;
 public class Evendata {
     String name,des,key;
 
+    Evendata(){
+
+    }
+
     public Evendata(String name, String des, String key) {
         this.name = name;
         this.des = des;

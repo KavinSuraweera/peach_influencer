@@ -28,7 +28,6 @@ public class Events extends AppCompatActivity {
 
     ImageView addBrand;
     private FirebaseUser user;
-    private String brandId;
     private View decorView;
     eAdapter adapter;
     RecyclerView recyclerView;
@@ -46,13 +45,13 @@ public class Events extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
-        brandId = fAuth.getCurrentUser().getUid();
+        String brandId = fAuth.getCurrentUser().getUid();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<Evendata> options =
                 new FirebaseRecyclerOptions.Builder<Evendata>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Events/"+brandId), Evendata.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Events/"+ brandId), Evendata.class)
                         .build();
         adapter = new eAdapter(options);
         recyclerView.setAdapter(adapter);
@@ -67,7 +66,7 @@ public class Events extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart(){
         super.onStart();
         adapter.startListening();
     }
