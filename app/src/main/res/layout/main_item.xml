@@ -83,12 +83,24 @@
             android:id="@+id/button3"
             android:layout_width="59dp"
             android:layout_height="26dp"
-            android:layout_marginTop="29dp"
             android:layout_marginStart="190dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="173dp"
+            android:layout_marginTop="45dp"
             android:layout_toRightOf="@id/img1"
             android:background="@drawable/blue_button"
-            android:text="view"
+            android:text="delete"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="59dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="190dp"
+            android:layout_marginLeft="173dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:background="@drawable/blue_button"
+            android:text="Edit"
             android:textColor="@color/white" />
 
     </RelativeLayout>

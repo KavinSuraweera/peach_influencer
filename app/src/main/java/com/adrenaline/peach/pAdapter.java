@@ -3,6 +3,7 @@ package com.adrenaline.peach;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,8 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.storage.UploadTask;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -35,6 +38,19 @@ public class pAdapter extends FirebaseRecyclerAdapter<Products,pAdapter.pViewHol
 
         //Picasso.get().load(imageUri).into(pViewHolder.imageView);
 
+        pViewHolder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DialogPlus dialogPlus = DialogPlus.newDialog(pViewHolder.edit.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.pdate_popup))
+                        .setExpanded(true,2100)
+                        .create();
+
+                dialogPlus.show();
+
+            }
+        });
+
 
     }
 
@@ -49,6 +65,7 @@ public class pAdapter extends FirebaseRecyclerAdapter<Products,pAdapter.pViewHol
     {
         TextView name;
         ImageView imageView;
+        Button edit,delete;
 
 
         public pViewHolder(@NonNull View itemView){
@@ -56,6 +73,8 @@ public class pAdapter extends FirebaseRecyclerAdapter<Products,pAdapter.pViewHol
             //imageView = itemView.findViewById(R.id.img1);
 
             name = (TextView) itemView.findViewById(R.id.name_text);
+            edit = (Button) itemView.findViewById(R.id.button3);
+            delete = (Button) itemView.findViewById(R.id.button4);
 
         }
 
