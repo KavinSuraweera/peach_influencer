@@ -58,10 +58,10 @@ public class BrandSignUp extends AppCompatActivity {
         fAuth =  FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),brandDashboard.class));
-            finish();
-        }
+//        if(fAuth.getCurrentUser() != null){
+//            startActivity(new Intent(getApplicationContext(),brandDashboard.class));
+//            finish();
+//        }
 
         mRegisterbtn.setOnClickListener(new View.OnClickListener() {
             @Override

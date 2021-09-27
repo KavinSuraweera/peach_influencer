@@ -16,21 +16,31 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
 
 public class creator_dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Button btn_logout;
+    private Button btn_logout,profile;
     private View decorView;
 
     FirebaseAuth fAuth;
@@ -41,34 +51,87 @@ public class creator_dashboard extends AppCompatActivity implements NavigationVi
     TextView fName,lName,contactNo,userName,eMail;
 
     private FirebaseUser user;
-    private DatabaseReference reference;
 
     private String creatorId;
+    private StorageReference storageReference;
 
     //variables for drawer layout
-
+    ArrayList<Brand> BrandArrayList;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    bAdapter bAdapter;
+    RecyclerView recyclerView;
+    bAdapter adapter;
+    TextView uname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_creator_dashboard);
         btn_logout = findViewById(R.id.btn_logout);
         decorView = getWindow().getDecorView();
-
-        setContentView(R.layout.activity_creator_dashboard);
-       // lName = findViewById(R.id.view_lname);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
+
+
         user = fAuth.getCurrentUser();
         creatorId = fAuth.getCurrentUser().getUid();
 
+//        recyclerView =(RecyclerView)findViewById(R.id.rv);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+        userName = findViewById(R.id.usrname);
+        btn_logout = findViewById(R.id.btn_logout);
+        profile = findViewById(R.id.profile);
+
+
+       // lName = findViewById(R.id.view_lname);
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();//logout
+                Intent intent = new Intent(creator_dashboard.this,MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(creator_dashboard.this,creatorProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        DocumentReference documentReference = fStore.collection("creators").document(creatorId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                userName.setText("Hi @"+value.getString("userName"));
+            }
+        });
+
+
+
+//        DocumentReference documentReference = fStore.collection("creators").document("creatorId");
+//        documentReference.addSnapshotListener(creator_dashboard.this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+//
+//                userName.setText(documentSnapshot.getString("userName"));
+//
+//
+//
+//
+//            }
+//        });
 
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
 
@@ -100,7 +163,31 @@ public class creator_dashboard extends AppCompatActivity implements NavigationVi
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+//
+//        FirebaseRecyclerOptions<Brand> options =
+//                new FirebaseRecyclerOptions.Builder<Brand>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Products"), Brand.class)
+//                        .build();
+//        adapter = new bAdapter(options);
+//        recyclerView.setAdapter(adapter);
+
     }
+
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
+
+
 
     @Override
     public void onBackPressed() {

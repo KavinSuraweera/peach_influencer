@@ -25,25 +25,27 @@
         <entry key="app/src/main/res/drawable/signin_button.xml" value="0.16578947368421051" />
         <entry key="app/src/main/res/drawable/textbox_back.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/drawable/upload_icon.xml" value="0.11315789473684211" />
-        <entry key="app/src/main/res/layout/activity_add_event.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_add_event.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.21584026877575588" />
+        <entry key="app/src/main/res/layout/activity_brand.xml" value="0.16282894736842105" />
         <entry key="app/src/main/res/layout/activity_brand_dashboard.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_brand_login.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_brand_lohin.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_brand_profile.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/activity_brand_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_brand_sign_up.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_creator_dashboard.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_creator_dashboard.xml" value="0.187890625" />
         <entry key="app/src/main/res/layout/activity_creator_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_creator_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_creator_sing_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_edit_creator.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_events.xml" value="0.1282051282051282" />
+        <entry key="app/src/main/res/layout/activity_events.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12347117064647642" />
         <entry key="app/src/main/res/layout/activity_side_bar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_view_product_brand.xml" value="0.1" />
         <entry key="app/src/main/res/layout/app_bar_side_bar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/brand_header.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/brand_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_side_bar.xml" value="0.1707236842105263" />
         <entry key="app/src/main/res/layout/event_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
@@ -55,6 +57,7 @@
         <entry key="app/src/main/res/layout/pdate_popup.xml" value="0.16282894736842105" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.16348684210526315" />
         <entry key="app/src/main/res/layout/toolbar_white.xml" value="0.13729508196721313" />
+        <entry key="app/src/main/res/layout/update_event.xml" value="0.335" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.16282894736842105" />
         <entry key="app/src/main/res/menu/brand_menu.xml" value="0.16282894736842105" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.1" />

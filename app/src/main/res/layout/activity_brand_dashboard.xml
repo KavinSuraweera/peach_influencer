@@ -37,6 +37,15 @@
             layout="@layout/toolbar"
             android:id="@id/toolbar"/>
 
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="410dp"
+            android:layout_height="635dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/back_3" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="388dp"

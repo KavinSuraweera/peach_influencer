@@ -8,6 +8,15 @@
 
 
     <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="414dp"
+        android:layout_height="590dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_layer2" />
+
+    <ImageView
         android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="70dp"

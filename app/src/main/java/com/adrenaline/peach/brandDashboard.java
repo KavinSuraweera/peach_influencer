@@ -158,6 +158,10 @@ public class brandDashboard extends AppCompatActivity implements NavigationView.
                 Intent intent2 = new Intent(brandDashboard.this,Events.class);
                 startActivity(intent2);
                 break;
+            case R.id.nav_products:
+                Intent intent3= new Intent(brandDashboard.this,addProduct.class);
+                startActivity(intent3);
+                break;
 
         }
 

@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".creator_dashboard"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -33,9 +33,69 @@
         android:layout_height="match_parent"
         android:background="#ffffff">
 
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="422dp"
+            android:layout_height="725dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_layer3" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="410dp"
+            android:layout_height="573dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_wgite" />
+
         <include
-            layout="@layout/toolbar"
-            android:id="@id/toolbar"/>
+            android:id="@id/toolbar"
+            layout="@layout/toolbar" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="370dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/red_btn"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/profile"
+            android:layout_width="370dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="428dp"
+            android:background="@drawable/blue_button"
+            android:text="My Profile"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/usrname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            android:fontFamily="@font/rancho"
+            android:text="TextView"
+            android:textColor="#4282EB"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

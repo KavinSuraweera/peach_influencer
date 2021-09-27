@@ -73,7 +73,7 @@ public class brand_login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            startActivity(new Intent(brand_login.this,BrandSignUp.class));
+                            startActivity(new Intent(brand_login.this,brandDashboard.class));
                         }else{
                             Toast.makeText(brand_login.this, "Failed to login! please check your credentials", Toast.LENGTH_SHORT).show();
                         }

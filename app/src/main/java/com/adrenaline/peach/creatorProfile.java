@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -50,7 +53,7 @@ public class creatorProfile extends AppCompatActivity {
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
-    private Button btn_logout;
+    private Button btn_logout,delete;
     
 
 
@@ -62,9 +65,11 @@ public class creatorProfile extends AppCompatActivity {
     Button edit;
     ImageView changeProfileImage;
 
+
+
     private String creatorId;
     private FirebaseUser user;
-
+    AlertDialog.Builder builder;
     // lName = findViewById(R.id.view_lname);
 
     @Override
@@ -85,6 +90,7 @@ public class creatorProfile extends AppCompatActivity {
         changeProfileImage = findViewById(R.id.btn_add_pic);
         creatorPic = findViewById(R.id.c_profile_pic);
         btn_logout = findViewById(R.id.btn_logout);
+        delete = findViewById(R.id.btn_delete);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -94,7 +100,7 @@ public class creatorProfile extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-
+        DocumentReference documentReference = fStore.collection("creators").document(creatorId);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,9 +119,49 @@ public class creatorProfile extends AppCompatActivity {
             }
         });
 
+        builder = new AlertDialog.Builder(this);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.setTitle("Are you Sure ?");
+                builder.setMessage("Deleted data can't be Undo.");
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        fStore.collection("creators").document(creatorId)
+                                .delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        FirebaseAuth.getInstance().signOut();
+                                        Toast.makeText(creatorProfile.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(creatorProfile.this,MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(creatorProfile.this, "error", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
 
 
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(creatorProfile.this, "Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                builder.show();
+            }
+        });
 
 
         changeProfileImage.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +189,7 @@ public class creatorProfile extends AppCompatActivity {
 
 
 
-        DocumentReference documentReference = fStore.collection("creators").document(creatorId);
+
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
